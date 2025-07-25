@@ -58,17 +58,29 @@
 
 ## 📂 Project Structure
 
-TripEase/
-├── controller/     → REST API controllers
-├── service/        → Business logic
-├── model/          → Entity classes (Customer, Driver, Cab, Booking)
-├── repository/     → JPA repositories
-├── dto/            → Response/request objects
-├── transformer/    → Data conversions
-├── resources/
-│   └── application.properties
-├── TripEaseApplication.java
-└── .env            → Environment variables
+tripease/
+├── .mvn/                               # Maven Wrapper
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/example/tripease/
+│   │   │       ├── controller/         # REST Controllers
+│   │   │       ├── dto/                # Data Transfer Objects
+│   │   │       ├── model/              # Entity classes: Customer, Driver, Booking, Cab
+│   │   │       ├── repository/         # Spring Data JPA Repositories
+│   │   │       ├── service/            # Business Logic
+│   │   │       ├── transformer/        # Response Converters (DTO mapping)
+│   │   │       └── TripeaseApplication.java  # Main class
+│   │   └── resources/
+│   │       ├── application.properties  # Configuration properties
+│   │       ├── static/                 # Static resources (if any)
+│   │       └── templates/              # Thymeleaf templates (if used)
+│   └── test/                           # Unit and integration tests
+├── .env                                # Sensitive environment variables
+├── .gitignore
+├── mvnw / mvnw.cmd                     # Maven Wrapper Scripts
+├── pom.xml                             # Maven build file
+└── README.md                           # Project documentation
 
 ---
 
