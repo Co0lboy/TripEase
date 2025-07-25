@@ -56,8 +56,9 @@
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
+```bash
 tripease/
 ├── .mvn/                               # Maven Wrapper
 ├── src/
@@ -81,7 +82,6 @@ tripease/
 ├── mvnw / mvnw.cmd                     # Maven Wrapper Scripts
 ├── pom.xml                             # Maven build file
 └── README.md                           # Project documentation
-
 ---
 
 ## 🌐 API Endpoints
