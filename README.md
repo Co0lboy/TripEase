@@ -1,38 +1,47 @@
 
-# 🚗 TripEase - Travel Booking Web Application
+<h1 align="center">🚖 TripEase - Spring Boot Cab Booking API</h1>
 
-TripEase is a backend web application built using **Java Spring Boot** that allows users to register, manage drivers and cabs, and book trips. The application integrates email notification using SMTP and provides interactive API documentation using Swagger.
+<p align="center">
+A Java Spring Boot-based backend REST API that allows users to register customers, add drivers, register cabs, and book trips.
+<br/>
+✨ Integrated with SMTP for email confirmation, Swagger for API documentation, and MySQL for persistent storage.
+</p>
+
+---
+
+## 📚 Project Overview
+
+| Feature             | Description                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| 🧑 Customer         | Register and retrieve customer data                                          |
+| 🚗 Driver           | Add and manage drivers                                                       |
+| 🚕 Cab              | Register cabs for the drivers                                                |
+| 📍 Trip Booking     | Book a cab with pickup, destination & distance                               |
+| 📧 Email Service    | Sends booking confirmation via Gmail SMTP                                    |
+| 📘 Swagger Docs     | Provides an interactive API documentation                                    |
+| 🔐 Secure Configs   | `.env` file for DB and email credentials                                     |
 
 ---
 
 ## 🔧 Tech Stack
 
-- **Java 21**
-- **Spring Boot**
-- **MySQL** (Managed via DBeaver)
-- **Spring Data JPA**
-- **Swagger** (SpringDoc OpenAPI)
-- **SMTP (Gmail)** for sending emails
-- **Postman** for API testing
-- **Maven** for project build and dependency management
-
----
-
-## 📌 Features
-
-- ✅ Customer & Driver registration
-- ✅ Cab registration
-- ✅ Cab booking with dynamic distance & price calculation
-- ✅ Auto-email confirmation on booking
-- ✅ Role-based entity management
-- ✅ API documentation using Swagger UI
+| Layer        | Technology         |
+|--------------|--------------------|
+| Language     | Java 21            |
+| Framework    | Spring Boot        |
+| Database     | MySQL (DBeaver)    |
+| ORM          | Spring Data JPA    |
+| Email        | SMTP (Gmail)       |
+| API Docs     | Swagger (Springdoc)|
+| Testing Tool | Postman            |
+| Build Tool   | Maven              |
 
 ---
 
 ## 🗂 Project Structure
 
-TripEase/
-│
+```bash
+tripease/
 ├── src/
 │   ├── main/
 │   │   ├── java/com/example/tripease/
@@ -41,49 +50,46 @@ TripEase/
 │   │   │   ├── model/
 │   │   │   ├── repository/
 │   │   │   ├── service/
-│   │   │   ├── transformer/
 │   │   │   └── TripEaseApplication.java
 │   │   └── resources/
 │   │       ├── application.properties
 │   │       ├── static/
 │   │       └── templates/
-│   └── test/
-│
 ├── .env
-├── Dockerfile (Optional)
-├── .gitignore
 ├── pom.xml
+├── .gitignore
 └── README.md
-
----
-
-## ⚙️ Environment Variables (.env)
-
-Ensure you create a `.env` file (not pushed to GitHub) with the following content:
-
-```env
-DB_URL=jdbc:mysql://localhost:3306/tripease-db
-DB_USERNAME=your_mysql_username
-DB_PASSWORD=your_mysql_password
-
-EMAIL_USERNAME=your_email@gmail.com
-EMAIL_PASSWORD=your_email_app_password
 
 
 ⸻
 
-🧪 API Testing via Postman
+📂 Environment Setup
 
-You can test all endpoints using Postman. Sample endpoints:
+Create a .env file in the root directory:
 
-GET     /customer/getAll
-POST    /customer/add
-GET     /driver/getAll
-POST    /driver/add
-POST    /cab/register
-POST    /booking/book/customer/{customerId}
+# MySQL DB Configuration
+DB_URL=jdbc:mysql://localhost:3306/tripease-db
+DB_USERNAME=root
+DB_PASSWORD=your_password
 
-Sample JSON for booking:
+# SMTP Email Config
+EMAIL_USERNAME=your_email@gmail.com
+EMAIL_PASSWORD=your_app_password
+
+⚠️ Don’t push .env or application.properties to GitHub (they’re ignored in .gitignore).
+
+⸻
+
+🚀 API Usage Guide
+
+Endpoint	Method	Description
+/customer/add	POST	Add new customer
+/customer/getAll	GET	Get all customers
+/driver/add	POST	Add new driver
+/cab/register	POST	Register a cab
+/booking/book/customer/{id}	POST	Book cab for customer
+
+🧪 Sample Booking Request (Postman - application/json)
 
 {
   "pickup": "delhi",
@@ -96,55 +102,90 @@ Sample JSON for booking:
 
 📘 Swagger UI
 
-View all available APIs with Swagger UI once the server starts:
-
-🔗 http://localhost:8080/swagger-ui.html
+After starting the app, open http://localhost:8080/swagger-ui.html
+→ Browse and test all endpoints with ease.
 
 ⸻
 
-💻 Run Locally
+💻 Running Locally
 
-Prerequisites
-	•	Java 17+ (Java 21 recommended)
-	•	Maven
-	•	MySQL (use DBeaver for easy DB management)
+▶️ Prerequisites
 
-Steps
+Tool	Required Version
+Java	17 or higher (Java 21 used)
+Maven	Latest
+MySQL	8.x or compatible
+IDE	IntelliJ / VS Code
 
-# Clone repository
+▶️ Steps
+
+# Clone the project
 git clone https://github.com/your-username/tripease.git
 cd tripease
 
 # Add environment variables
 cp .env.example .env
-# (Update with your actual DB and SMTP details)
+# (Edit DB and SMTP details)
 
-# Run the application
+# Start MySQL server and create DB (e.g., "tripease-db")
+
+# Run Spring Boot app
 ./mvnw spring-boot:run
 
 
 ⸻
 
-🚀 Deployment
+📸 Screenshots
 
-You can deploy this app on platforms like:
-	•	Railway
-	•	Render
-	•	Heroku
+<details>
+<summary>🔍 Postman - Booking API</summary>
 
-(Deployment instructions are available in the docs/DEPLOY.md if needed.)
+
+</details>
+
+
+<details>
+<summary>🧭 IntelliJ Project Structure</summary>
+
+
+</details>
+
+
 
 ⸻
 
-🙋‍♂️ Author
+🙋‍♂️ About Me
 
-Aniket Pawar
-👨‍🎓 B.E. in Robotics & Automation Engineering
-📬 LinkedIn
-💻 Skills: Java, Spring Boot, MySQL, REST APIs
+Name	Aniket Pawar
+🎓 Education	B.E. in Robotics & Automation Engineering
+🛠️ Skills	Java, Spring Boot, MySQL, REST APIs
+🌐 GitHub	github.com/your-username
+📫 LinkedIn	linkedin.com/in/your-profile
+
 
 ⸻
 
-⭐ Give a Star!
+⭐ Show Support
 
-If you liked the project, don’t forget to ⭐ star the repo and follow for updates.
+If you liked the project:
+	•	Give it a ⭐ on GitHub
+	•	Share with friends
+	•	Connect on LinkedIn
+
+⸻
+
+
+---
+
+### ✅ What to Do Now
+
+1. Create a folder `screenshots/` inside your repo.
+2. Save the images (`Postman`, `IntelliJ`) as:
+   - `postman-booking.png`
+   - `project-structure.png`
+3. Replace all `your-username`, `your-profile`, and `your_email` with your actual values.
+4. Paste this markdown into your `README.md` in the root of your GitHub repo.
+
+---
+
+Would you also like a `DEPLOY.md` file to guide Railway deployment for this exact same project?
