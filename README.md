@@ -1,94 +1,67 @@
-<h1 align="center">🚖 TripEase - Spring Boot Cab Booking API</h1>
+<h1 align="center">🚕 TripEase - Cab Booking Backend Application</h1>
 
 <p align="center">
-A Java Spring Boot-based backend REST API that allows users to register customers, add drivers, register cabs, and book trips.
-<br/>
-✨ Integrated with SMTP for email confirmation, Swagger for API documentation, and MySQL for persistent storage.
+  A RESTful web application for booking trips built using <strong>Java Spring Boot</strong>, <strong>MySQL</strong>, and <strong>Swagger</strong>.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/SpringBoot-2.7-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/MySQL-DBeaver-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/Postman-Tested-orange?style=flat-square" />
+  <img src="https://img.shields.io/badge/Swagger-API-green?style=flat-square" />
 </p>
 
 ---
 
-## 📚 Project Overview
+## 🧰 Tech Stack
 
-| Feature             | Description                                                                 |
-|---------------------|-----------------------------------------------------------------------------|
-| 🧑 Customer         | Register and retrieve customer data                                          |
-| 🚗 Driver           | Add and manage drivers                                                       |
-| 🚕 Cab              | Register cabs for the drivers                                                |
-| 📍 Trip Booking     | Book a cab with pickup, destination & distance                               |
-| 📧 Email Service    | Sends booking confirmation via Gmail SMTP                                    |
-| 📘 Swagger Docs     | Provides an interactive API documentation                                    |
-| 🔐 Secure Configs   | `.env` file for DB and email credentials                                     |
-
----
-
-## 🔧 Tech Stack
-
-| Layer        | Technology         |
-|--------------|--------------------|
-| Language     | Java 21            |
-| Framework    | Spring Boot        |
-| Database     | MySQL (DBeaver)    |
-| ORM          | Spring Data JPA    |
-| Email        | SMTP (Gmail)       |
-| API Docs     | Swagger (Springdoc)|
-| Testing Tool | Postman            |
-| Build Tool   | Maven              |
+| Tech           | Description                        |
+|----------------|------------------------------------|
+| **Java 21**    | Backend language                   |
+| **Spring Boot**| REST API framework                 |
+| **MySQL**      | Database (via DBeaver)             |
+| **JPA**        | ORM for data persistence           |
+| **Postman**    | API testing                        |
+| **Swagger**    | API documentation (SpringDoc)      |
+| **SMTP (Gmail)**| Email service for trip confirmation |
 
 ---
 
-## 🗂 Project Structure
+## 📁 Project Structure
 
 ```bash
 tripease/
-├── src/
-│   ├── main/
-│   │   ├── java/com/example/tripease/
-│   │   │   ├── controller/
-│   │   │   ├── dto/
-│   │   │   ├── model/
-│   │   │   ├── repository/
-│   │   │   ├── service/
-│   │   │   └── TripEaseApplication.java
-│   │   └── resources/
-│   │       ├── application.properties
-│   │       ├── static/
-│   │       └── templates/
+├── src/main/java/com/example/tripease/
+│   ├── controller/
+│   ├── dto/
+│   ├── model/
+│   ├── repository/
+│   ├── service/
+│   ├── transformer/
+│   └── TripEaseApplication.java
+├── src/main/resources/
+│   ├── application.properties
+│   ├── static/
+│   └── templates/
 ├── .env
-├── pom.xml
 ├── .gitignore
+├── pom.xml
 └── README.md
 
 
 ⸻
 
-📂 Environment Setup
+🌐 API Endpoints
 
-Create a .env file in the root directory:
+Method	Endpoint	Description
+POST	/customer/add	Register new customer
+GET	/customer/getAll	Get all customers
+POST	/driver/add	Register driver
+POST	/cab/register	Register new cab
+POST	/booking/book/customer/{id}	Book cab for a customer
+GET	/booking/getAll	View all bookings
 
-# MySQL DB Configuration
-DB_URL=jdbc:mysql://localhost:3306/tripease-db
-DB_USERNAME=root
-DB_PASSWORD=your_password
-
-# SMTP Email Config
-EMAIL_USERNAME=your_email@gmail.com
-EMAIL_PASSWORD=your_app_password
-
-⚠️ Don’t push .env or application.properties to GitHub (they’re ignored in .gitignore).
-
-⸻
-
-🚀 API Usage Guide
-
-Endpoint	Method	Description
-/customer/add	POST	Add new customer
-/customer/getAll	GET	Get all customers
-/driver/add	POST	Add new driver
-/cab/register	POST	Register a cab
-/booking/book/customer/{id}	POST	Book cab for customer
-
-🧪 Sample Booking Request (Postman - application/json)
+🔖 Sample Booking Payload
 
 {
   "pickup": "delhi",
@@ -99,68 +72,80 @@ Endpoint	Method	Description
 
 ⸻
 
-📘 Swagger UI
+🛠️ Configuration
 
-After starting the app, open http://localhost:8080/swagger-ui.html
-→ Browse and test all endpoints with ease.
+🔐 Environment Variables (.env)
+
+Variable Name	Description
+DB_URL	JDBC URL for MySQL database
+DB_USERNAME	Your DB username
+DB_PASSWORD	Your DB password
+EMAIL_USERNAME	Your Gmail address
+EMAIL_PASSWORD	App password for Gmail SMTP
+
+📄 Example .env file
+
+DB_URL=jdbc:mysql://localhost:3306/tripease-db
+DB_USERNAME=root
+DB_PASSWORD=yourpassword
+
+EMAIL_USERNAME=youremail@gmail.com
+EMAIL_PASSWORD=yourapppassword
+
 
 ⸻
 
-💻 Running Locally
+🧪 API Testing (Postman)
 
-▶️ Prerequisites
+Tool	Description
+Postman	Use the request collection to test APIs
+Swagger	Visit /swagger-ui.html in browser
 
-Tool	Required Version
-Java	17 or higher (Java 21 used)
-Maven	Latest
-MySQL	8.x or compatible
-IDE	IntelliJ / VS Code
 
-▶️ Steps
+⸻
 
-# Clone the project
+🚀 Getting Started
+
+Prerequisites
+	•	Java 17 or 21
+	•	Maven
+	•	MySQL (DBeaver optional)
+
+🧾 Build & Run Locally
+
+# Clone the repo
 git clone https://github.com/your-username/tripease.git
 cd tripease
 
-# Add environment variables
+# Copy .env and update values
 cp .env.example .env
-# (Edit DB and SMTP details)
 
-# Start MySQL server and create DB (e.g., "tripease-db")
+# Build the project
+./mvnw clean install
 
-# Run Spring Boot app
+# Run the app
 ./mvnw spring-boot:run
 
+Then, open http://localhost:8080/swagger-ui.html to explore the APIs.
 
 ⸻
 
-📸 Screenshots
+📦 Deployment (Coming Soon)
 
-<details>
-<summary>🔍 Postman - Booking API</summary>
+Platform	Status	Link
+Railway	🚧 To be deployed	
+Render	❌ Not yet	
+Docker	🛠 Optional	
 
-
-</details>
-
-
-<details>
-<summary>🧭 IntelliJ Project Structure</summary>
-
-
-</details>
 
 ⸻
 
-🙋‍♂️ About Me
-
-Name	Aniket Pawar
-
-📫 LinkedIn	[linkedin.com/in/your-profile](https://www.linkedin.com/in/aniket-pawar-2436bb240/)
+👨‍💻 Author
+Aniket Pawar	
 
 
-⭐ Show Support
+⸻
 
-If you liked the project:
-	•	Give it a ⭐ on GitHub
-	•	Share with friends
-	•	Connect on LinkedIn
+⭐ Support
+
+If you found this project helpful, please give it a ⭐ on GitHub and consider following for more!
