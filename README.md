@@ -1,4 +1,3 @@
-
 <h1 align="center">🚖 TripEase - Spring Boot Cab Booking API</h1>
 
 <p align="center">
@@ -150,20 +149,14 @@ cp .env.example .env
 
 </details>
 
-
-
 ⸻
 
 🙋‍♂️ About Me
 
 Name	Aniket Pawar
-🎓 Education	B.E. in Robotics & Automation Engineering
-🛠️ Skills	Java, Spring Boot, MySQL, REST APIs
-🌐 GitHub	github.com/your-username
-📫 LinkedIn	linkedin.com/in/your-profile
 
+📫 LinkedIn	[linkedin.com/in/your-profile](https://www.linkedin.com/in/aniket-pawar-2436bb240/)
 
-⸻
 
 ⭐ Show Support
 
@@ -171,21 +164,3 @@ If you liked the project:
 	•	Give it a ⭐ on GitHub
 	•	Share with friends
 	•	Connect on LinkedIn
-
-⸻
-
-
----
-
-### ✅ What to Do Now
-
-1. Create a folder `screenshots/` inside your repo.
-2. Save the images (`Postman`, `IntelliJ`) as:
-   - `postman-booking.png`
-   - `project-structure.png`
-3. Replace all `your-username`, `your-profile`, and `your_email` with your actual values.
-4. Paste this markdown into your `README.md` in the root of your GitHub repo.
-
----
-
-Would you also like a `DEPLOY.md` file to guide Railway deployment for this exact same project?
